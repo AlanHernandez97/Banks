@@ -1,5 +1,5 @@
-import { BanksCard } from '@/app/components/bankscard/BanksCard';
 import { BanksResponse } from '../interfaces/banks-response';
+import Container from '../../components/container/Container';
 
 
 const getBanks = async () => {
@@ -10,21 +10,18 @@ const getBanks = async () => {
 
 export async function BanksPage() {
 
-	const banks = await getBanks();
+
+	const banks = await getBanks()
+
+
 
 	return (
-		<div className='px-10 py-3 flex flex-ro flex-wrap gap-10 xl:justify-evenly'>
-			{
-				banks.map(bank => (
-					<BanksCard
-						name={bank.bankName}
-						age={bank.age}
-						description={bank.description}
-						path={bank.url}
-					/>
-				))
-			}
-		</div>
+
+		<Container
+			data={banks}
+		/>
+
+
 	)
 }
 
